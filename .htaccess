@@ -1,0 +1,6 @@
+Options All -Indexes # servidor de APACHE
+
+Options -MultiViews # Evita que se muestre el listado de archivos en carpetas sin index.
+RewriteEngine On    # Desactiva la negociación de contenido (por ejemplo, no busca "index" sin extensión).
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L] # Redirige todo a index.php si no es un archivo real.
